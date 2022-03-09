@@ -8,12 +8,18 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Student
+typedef struct
 {
     int num;
     int age;
     char name[100];
-};
+} Student;
+
+void inputdata(Student *s)
+{
+    scanf("%d %d %s", &s->num, &s->age, s->name);
+}
+
 
 void sorting(Student arr[], int n)
 {
@@ -41,6 +47,8 @@ int main(void)
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
         scanf("%d%d%s", &person[i].num, &person[i].age, person[i].name);
+    /*for (int i = 0; i < n; i++)
+        inputdata(person + i); */
     sorting(person, n);
     for (int i = 0; i < n; i++)
         printf("%d, %d, %s\n", person[i].num, person[i].age, person[i].name);

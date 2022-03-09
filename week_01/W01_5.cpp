@@ -42,6 +42,28 @@ double calcul(char str[])
         res = num[0] - num[1];
     return res;
 }
+/*
+double solution(const char *bin_string)
+{
+    char *add = "add"; // sub mul ...
+    int a = 0, b = 0, op;
+
+    for (int i = 0; isdigit(bin_string[i]) != 0; i++)
+        a = a * 10 + bin_string[i] - '0';
+    for (; isspace(bin_string[i]) != 0; i++); //공백
+    op = i;
+    for (; isdigit(bin_string[i]) == 0; i++); //숫자찾기
+    for (; bin_string[i] != 0; i++)
+        b = b * 10 + bin_string[i] - '0';
+
+    if (strncmp(add, bin_string + op, 3) == 0)
+        return (bin_string[0] + bin_string[1]);
+    /*
+     sub*
+     mul*   
+     div*
+    */
+//}
 
 int main(void)
 {

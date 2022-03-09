@@ -26,7 +26,7 @@ int GetIntArray(int v[])
     return i;
 }
 
-void SubSumMin(int v[], int n, int *indexstart, int *indexend)
+/*void SubSumMin(int v[], int n, int *indexstart, int *indexend)
 {
     int min = INT_MAX;
     for (int i = 0; i < n - 1; i++)
@@ -44,6 +44,25 @@ void SubSumMin(int v[], int n, int *indexstart, int *indexend)
             }
         }
     }
+}*/
+
+void SubSumMin(int v[], int n, int *indexstart, int *indexend)
+{
+    int i, j, sum, min = INT_MAX;
+    for (i = 0; i < n; i++)
+    {
+        sum = 0;
+        for (j = 1; j < n; j++)
+        {
+            sum += v[j];
+            if (min >= sum)
+            {
+                min = sum;
+                *indexstart = i;
+                *indexend = j;
+            }
+        }
+    }
 }
 
 int main(void)
@@ -52,7 +71,7 @@ int main(void)
 
     arr_size = GetIntArray(arr);
     SubSumMin(arr, arr_size, &indexstart, &indexend);
-
-    printf("%d %d", indexstart, indexend);
+    for (int i = indexstart; i <= indexend; i++)
+        printf("%d ", arr[i]);
     return 0;
 }

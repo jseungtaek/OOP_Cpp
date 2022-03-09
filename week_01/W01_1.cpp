@@ -23,6 +23,13 @@ int getIntArray(int arr[])
             break;
     }
     return i;
+    /*
+    while(1) {
+        scanf("%d", &arr[i]);
+        if(arr[i] == 0)
+        return i;
+        i++;
+    }*/
 }
 
 int setUnion(int *a, int size_a, int *b, int size_b, int *c)
@@ -46,6 +53,36 @@ int setUnion(int *a, int size_a, int *b, int size_b, int *c)
     return k;
 }
 
+/*int setUnion(int *a, int size_a, int *b, int size_b, int *c)
+{
+    int size_c = 0, i = 0, j = 0;
+
+    while (i<size_a && j<size_b)
+    {
+        if (a[i] < b[j])
+        {
+            c[size_c++] = a[i];
+            i++;
+        }
+        else if (a[i] > b[j])
+        {
+            c[size_c++] = b[j];
+            j++;
+        }
+        else
+        {
+            c[size_c++] = a[i];
+            i++;
+            j++;
+        }
+    }
+    while(i<size_a)
+        c[size_c++]=a[i++];
+    while(j<size_b)
+        c[size_c++]=b[j++];
+    return size_c;
+}
+*/
 int main(void)
 {
     int a[100], b[100], c[200], size_a, size_b, size_c;
